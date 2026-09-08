@@ -18,12 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Offline network detector
+    // Offline block & warning handler
     if (!navigator.onLine) {
-        const warning = document.createElement('div');
-        warning.style.cssText = 'position:fixed;bottom:10px;right:10px;background:#222;color:#fff;padding:10px 15px;border-radius:5px;font-size:13px;z-index:9999;box-shadow:0 2px 5px rgba(0,0,0,0.3);';
-        warning.textContent = 'No internet. Could not load fonts/external resources.';
-        document.body.appendChild(warning);
+        document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:Arial,sans-serif;text-align:center;padding:20px;"><div><h1 style="font-size:24px;margin-bottom:10px;">No Internet Connection</h1><p style="color:#555;">Could not load fonts/external resources. Please check your network.</p></div></div>';
     }
 
 });
