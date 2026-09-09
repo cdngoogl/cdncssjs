@@ -1,8 +1,7 @@
-// JavaScript dynamically blurs the background image (bg.png) on load
+// Dynamically adds the blur to your local background image
 document.addEventListener("DOMContentLoaded", function () {
     const bg = document.getElementById("bgImg");
     if (bg) {
         bg.style.filter = "blur(8px)";
-        bg.style.webkitFilter = "blur(8px)";
     }
 });
