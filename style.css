@@ -1,36 +1,62 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: sans-serif; background: #000; color: #fff; }
+
+body { 
+    font-family: sans-serif; 
+    background: #000; 
+    color: #fff; 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; /* Ensures body takes full screen height */
+}
+
 .container { width: 90%; max-width: 1100px; margin: auto; }
-.header { background: rgba(0,0,0,0.9); border-bottom: 1px solid #222; position: sticky; top: 0; z-index: 10; }
-.nav { height: 70px; display: flex; align-items: center; justify-content: space-between; }
+
+.header { 
+    background: #000; 
+    height: 70px; 
+    display: flex; 
+    align-items: center; 
+    border-bottom: 1px solid #333; 
+    z-index: 10; 
+}
+
+.nav { width: 100%; display: flex; justify-content: space-between; align-items: center; }
 .logo { color: #fff; font-weight: bold; text-decoration: none; font-size: 20px; }
 .menu { display: flex; gap: 20px; }
-.menu a { color: #aaa; text-decoration: none; font-size: 15px; transition: color 0.2s; }
+.menu a { color: #aaa; text-decoration: none; font-size: 15px; }
 .menu a:hover { color: #fff; }
 
 .banner {
+    flex: 1; /* Automatically fills all empty space between header and footer */
     position: relative;
-    height: calc(100vh - 140px); /* 100vh minus header and footer height */
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-color: #111; /* Fallback color so it doesn't look broken if the image is slow */
 }
+
 .bg-img {
     position: absolute;
-    inset: -30px; /* Pulls the edges outside the screen so the blur doesn't leave weird white borders */
+    top: -30px; left: -30px; right: -30px; bottom: -30px; /* Pulls edges off-screen to hide the blur bleed */
     background-size: cover;
     background-position: center;
     z-index: 1;
 }
+
 .banner h1 {
     position: relative;
     z-index: 2;
     color: #fff;
-    font-size: 56px;
+    font-size: 60px;
     letter-spacing: 2px;
-    text-shadow: 0 4px 15px rgba(0,0,0,0.8); /* Makes the white text pop out against the white dots */
+    text-shadow: 0 5px 15px rgba(0,0,0,1); /* Dark shadow so white text pops against white dots */
 }
 
-.footer { padding: 25px 0; text-align: center; background: #000; color: #555; border-top: 1px solid #222; font-size: 14px; }
+.footer { 
+    padding: 20px 0; 
+    text-align: center; 
+    background: #000; 
+    color: #555; 
+    border-top: 1px solid #333; 
+    font-size: 14px; 
+}
