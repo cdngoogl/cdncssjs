@@ -1,49 +1,51 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body { 
-    font-family: system-ui, -apple-system, sans-serif; 
-    background: #050505; 
+    font-family: 'Segoe UI', system-ui, sans-serif; 
+    background: #000; 
     color: #fff; 
+    overflow-x: hidden; /* Stops any weird sideways scrolling */
 }
 
 .container { width: 90%; max-width: 1200px; margin: auto; }
 
-/* 1. THE GLASSMORPHISM NAVBAR */
+/* --- 1. PREMIUM GLASS NAVBAR --- */
 .header { 
-    position: fixed; /* Floats the header OVER the banner */
+    position: fixed; /* Floats over the image */
     top: 0; left: 0; width: 100%;
-    background: rgba(0, 0, 0, 0.25); /* Very transparent black */
-    backdrop-filter: blur(15px); /* Strong blur for the frosted glass effect */
-    -webkit-backdrop-filter: blur(15px); /* Support for Safari */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Subtle glowing edge */
-    height: 80px; 
+    background: rgba(255, 255, 255, 0.05); /* Very light glass tint */
+    backdrop-filter: blur(25px); /* Massive blur for premium look */
+    -webkit-backdrop-filter: blur(25px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    height: 85px; 
     display: flex; 
     align-items: center; 
-    z-index: 100; /* Keeps it above everything */
+    z-index: 100; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Drops shadow on the blue background */
 }
 
 .nav { width: 100%; display: flex; justify-content: space-between; align-items: center; }
-.logo { color: #fff; font-weight: 800; text-decoration: none; font-size: 24px; letter-spacing: 1px;}
+.logo { color: #fff; font-weight: 900; text-decoration: none; font-size: 26px; letter-spacing: 2px;}
 
-.menu { display: flex; gap: 35px; }
+.menu { display: flex; gap: 40px; }
 .menu a { 
-    color: rgba(255, 255, 255, 0.8); 
+    color: rgba(255, 255, 255, 0.7); 
     text-decoration: none; 
     font-size: 14px; 
-    font-weight: 600; 
+    font-weight: 700; 
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     transition: all 0.3s ease; 
 }
 .menu a:hover { 
     color: #fff; 
-    text-shadow: 0 0 10px rgba(255,255,255,0.6); 
+    text-shadow: 0 0 15px rgba(255,255,255,1); /* Glowing hover effect */
 }
 
-/* 2. THE BANNER */
+/* --- 2. THE BANNER AREA --- */
 .banner {
     position: relative;
-    height: 100vh; /* Stretches the banner from the very top to the bottom */
+    height: 100vh; /* Fills exactly 100% of the screen height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,33 +54,45 @@ body {
 
 .bg-img {
     position: absolute;
-    top: -30px; left: -30px; right: -30px; bottom: -30px; 
+    top: -40px; left: -40px; right: -40px; bottom: -40px; 
     background-size: cover;
     background-position: center;
     z-index: 1;
-    filter: brightness(0.95); 
+    filter: brightness(0.85); /* Slightly darkens the blue so the white text glows */
+}
+
+/* Adds a smooth cinematic fade-in when the page loads */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .banner h1 {
     position: relative;
     z-index: 2;
     color: #fff;
-    font-size: clamp(50px, 8vw, 120px); 
+    font-size: clamp(40px, 8vw, 130px); 
     font-weight: 900;
-    letter-spacing: 5px;
+    letter-spacing: 8px;
     text-align: center;
     text-transform: uppercase;
-    text-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 4px 10px rgba(0,0,0,0.5); 
+    text-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 5px 15px rgba(0,0,0,0.5); 
+    animation: fadeInUp 1.2s ease-out forwards; /* Triggers the animation */
 }
 
-/* 3. THE FOOTER */
+/* --- 3. GLASS FOOTER --- */
 .footer { 
-    position: relative;
+    position: absolute; /* Locks to the bottom of the screen */
+    bottom: 0;
+    width: 100%;
     z-index: 10;
-    padding: 30px 0; 
+    padding: 20px 0; 
     text-align: center; 
-    background: #0a0a0a; 
+    background: rgba(0, 0, 0, 0.2); /* Dark glass */
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255,255,255,0.05);
     color: rgba(255,255,255,0.5); 
-    font-size: 14px; 
-    letter-spacing: 1px;
+    font-size: 13px; 
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
