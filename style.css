@@ -47,7 +47,7 @@ body {
     position: relative;
     height: 100vh; 
     display: flex;
-    flex-direction: column; /* This stacks the heading and description beautifully */
+    flex-direction: column; 
     align-items: center;
     justify-content: center;
     overflow: hidden;
@@ -62,19 +62,18 @@ body {
     filter: brightness(0.85); 
 }
 
-/* Smooth cinematic fade-in */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Smaller, cleaner heading */
+/* Much smaller, cleaner heading */
 .banner h1 {
     position: relative;
     z-index: 2;
     color: #fff;
-    /* Shrunk the max size from 130px down to 80px so it's not overpowering */
-    font-size: clamp(35px, 6vw, 80px); 
+    /* Shrunk the max size to 65px! It will be much smaller now. */
+    font-size: clamp(30px, 5vw, 65px); 
     font-weight: 900;
     letter-spacing: 6px;
     text-align: center;
@@ -87,15 +86,14 @@ body {
 .banner .desc {
     position: relative;
     z-index: 2;
-    color: rgba(255, 255, 255, 0.85); /* Slightly soft white so it doesn't fight the heading */
-    font-size: clamp(16px, 2vw, 22px);
+    color: rgba(255, 255, 255, 0.9); 
+    font-size: clamp(16px, 2vw, 20px); /* Clean, readable size */
     font-weight: 400;
     letter-spacing: 2px;
-    margin-top: 15px; /* Adds perfect breathing room below the heading */
+    margin-top: 15px; 
     text-align: center;
     text-shadow: 0 4px 10px rgba(0,0,0,0.8);
     opacity: 0; 
-    /* Delays the fade-in by 0.3s so it appears right after the heading */
     animation: fadeInUp 1s ease-out 0.3s forwards; 
 }
 
